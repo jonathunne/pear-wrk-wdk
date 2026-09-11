@@ -105,11 +105,12 @@ above, which exists for zeroing, not reuse).
 
 ## Logging and error messages
 
-No request or response payload is logged at the transport level, on
-either HRPC or JSON-RPC — only the method name. Anything closer to
-secret material logs at `debug` (off by default), not `info`. Error
-messages report shape, not value — e.g. `validateMnemonic` reports which
-word position is invalid, never the word itself.
+No request or response is logged at the transport level, on either
+HRPC or JSON-RPC — not the payload, and not the method name. Transport
+logs are errors only. Anything closer to secret material logs at
+`debug` (off by default), not `info`. Error messages report shape, not
+value — e.g. `validateMnemonic` reports which word position is invalid,
+never the word itself.
 
 **When adding a log line or error message near secret material: if
 there's any doubt, log the shape (a field name, a count, a boolean), not

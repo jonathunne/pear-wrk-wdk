@@ -141,8 +141,6 @@ function registerJsonRpcHandlers (ipc, context) {
 
     try {
       let result
-      logger.info(`JSON-RPC request: ${method}`)
-
       switch (method) {
         case 'workletStart':
           result = await withErrorHandling(async () => {
@@ -238,8 +236,6 @@ function registerJsonRpcHandlers (ipc, context) {
       // in the result back to base64 strings before this crosses into JSON.
       encodeBufferFields(result)
 
-      logger.info(`JSON-RPC response: ${method}`)
-
       const response = safeStringify({
         jsonrpc: '2.0',
         id,
@@ -278,8 +274,6 @@ function registerJsonRpcHandlers (ipc, context) {
   ipc.on('data', (data) => {
     processFramedData(data)
   })
-
-  logger.info('JSON-RPC handlers registered')
 }
 
 module.exports = {
