@@ -1,6 +1,6 @@
 {
   "name": "@tetherto/pear-wrk-wdk",
-  "version": "1.0.0-beta.14",
+  "version": "1.0.0-beta.15",
   "main": "index.js",
   "scripts": {
     "build:types": "tsc --noEmit",
